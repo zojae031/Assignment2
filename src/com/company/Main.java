@@ -1,9 +1,19 @@
 package com.company;
+import View.AppMain;
+
+import javax.swing.*;
+import java.awt.*;
 
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
-        System.out.println("ex");
+        JFrame frame = new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        AppMain appMain = new AppMain();
+        frame.getContentPane().add(appMain);
+
+        frame.pack();
+        frame.setVisible(true);
     }
 }
