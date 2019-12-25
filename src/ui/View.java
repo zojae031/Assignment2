@@ -2,6 +2,7 @@ package ui;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 
 public interface View {
     void attachActionListener(ActionListener lister);
@@ -29,5 +30,5 @@ public interface View {
     int getComboBoxIndex();
 
 
-    void refreshData();
+    void refreshData(Vector<String> comboBoxItems);
 }

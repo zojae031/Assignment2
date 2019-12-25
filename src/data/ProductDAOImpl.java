@@ -2,6 +2,8 @@ package data;
 
 import data.dao.Product;
 
+import java.util.Vector;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -150,5 +152,10 @@ public class ProductDAOImpl implements ProductDAO {
         if (INSTANCE == null)
             INSTANCE = new ProductDAOImpl();
         return INSTANCE;
+    }
+
+    @Override
+    public Vector<String> getPrcodeLists() {
+        return null;
     }
 }

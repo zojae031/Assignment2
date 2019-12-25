@@ -8,6 +8,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 import java.util.ArrayList;
 
 public class AppMain extends JFrame implements View {

@@ -2,6 +2,7 @@ package data;
 
 import data.dao.Product;
 
+import java.util.Vector;
 import java.util.ArrayList;
 
 public interface ProductDAO {
@@ -15,6 +16,8 @@ public interface ProductDAO {
     boolean updateProduct(Product product);
 
     Product getProduct(int prcode);
+
+    Vector<String> getPrcodeLists();
 
     ArrayList<Product> getAll();
 
