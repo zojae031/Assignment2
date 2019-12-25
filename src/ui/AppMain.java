@@ -1,11 +1,11 @@
-package View;
+package ui;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class AppMain extends JPanel {
+public class AppMain extends JPanel implements View {
     private JPanel labelPanel, inputPanel, btnPanel; // p1, p2, p3
     private JComboBox cb;
     private JLabel messageLabel; // ml
@@ -164,6 +164,7 @@ public class AppMain extends JPanel {
     }
     //=============Getter And Setter===================
 
+    @Override
     public void attachActionListener(ActionListener listener){
         btnAddInfo.addActionListener(listener);
         btnPrint.addActionListener(listener);

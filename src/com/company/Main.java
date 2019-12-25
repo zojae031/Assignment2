@@ -1,8 +1,7 @@
 package com.company;
-import View.AppMain;
+import ui.AppMain;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class Main {
 
