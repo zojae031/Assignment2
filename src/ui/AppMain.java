@@ -168,12 +168,15 @@ public class AppMain extends JFrame implements View {
 
     @Override
     public int getProductPrice() {
-        return Integer.parseInt(tfPrice.getText());
+        if (!tfPrice.getText().equals("")) {
+            return 0;
+        } else return Integer.parseInt(tfPrice.getText());
+
     }
 
     @Override
     public void setProductPrice(String text) {
-        
+
     }
 
     @Override
