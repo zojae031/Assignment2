@@ -9,6 +9,8 @@ public class AppMain extends JFrame implements View {
 
     private JPanel labelPanel, inputPanel, btnPanel; // p1, p2, p3
     private JComboBox cb;
+
+
     private JLabel lblMessage; // ml
     private JLabel lblManageNumber, lblProductName, lblPrice, lblManufacturer;
     private JTextArea listPrintArea;
@@ -155,14 +157,17 @@ public class AppMain extends JFrame implements View {
         return cb.getSelectedItem().toString();
     }
 
+    @Override
     public String getProductName() {
         return tfProductName.getText();
     }
 
-    public String getProductPrice() {
-        return tfPrice.getText();
+    @Override
+    public int getProductPrice() {
+        return Integer.parseInt(tfPrice.getText());
     }
 
+    @Override
     public String getManufacturer() {
         return tfManufacturer.getText();
     }
@@ -187,5 +192,13 @@ public class AppMain extends JFrame implements View {
         btnDelete.addActionListener(listener);
     }
 
+    @Override
+    public void setMessage(String text) {
+        lblMessage.setText(text);
+    }
 
+    @Override
+    public int getComboBoxIndex() {
+        return cb.getSelectedIndex();
+    }
 }

@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 public class ProductController implements Controller, ActionListener {
     private AppMain amPnl;//원래 인터페이스로 설정후 인터페이스 안에 메소드를 정의해야 함
     private ProductDAO productDAO;
-    private Product product = new Product();
+
 
     public ProductController(AppMain panel, ProductDAO product) {
         this.amPnl = panel;
@@ -23,7 +23,15 @@ public class ProductController implements Controller, ActionListener {
     public void actionPerformed(ActionEvent e) {
         Object obj = e.getSource();
         if (obj == amPnl.getBtnAddInfo()) {//등록
-            
+            int prcode = amPnl.getComboBoxIndex();
+            String productName = amPnl.getProductName();
+            int price = amPnl.getProductPrice();
+            String manufacturer = amPnl.getManufacturer();
+
+            if (productDAO.newProduct(new Product(prcode, productName, price, manufacturer))) {
+                amPnl.setMessage("상품을 등록했습니다.");
+            } else amPnl.setMessage("상품 등록이 실패했습니다.");
+
         } else if (obj == amPnl.getBtnPrint()) {//조회
 
         } else if (obj == amPnl.getBtnDelete()) {//삭제
