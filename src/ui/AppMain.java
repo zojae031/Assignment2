@@ -35,8 +35,6 @@ public class AppMain extends JFrame implements View {
         setInputPanel(); //p2
         setBtnPanel(); //p3
         setListPrintPanel();
-
-
     }
 
     private void setMessageLabel() {
@@ -119,7 +117,8 @@ public class AppMain extends JFrame implements View {
 
 
     // TODO
-    protected void refreshData() {
+    @Override
+    public void refreshData() {
         /*listPrintArea.setText("");
         clearField();
         editmode = false; // 현재 상태가 데이터 조회 후 상태인지, 새로운 데이터를 입력하기 위한 상태인지 설정하는 변수
@@ -163,8 +162,18 @@ public class AppMain extends JFrame implements View {
     }
 
     @Override
+    public void setProductName(String text) {
+
+    }
+
+    @Override
     public int getProductPrice() {
         return Integer.parseInt(tfPrice.getText());
+    }
+
+    @Override
+    public void setProductPrice(String text) {
+        
     }
 
     @Override
@@ -172,14 +181,22 @@ public class AppMain extends JFrame implements View {
         return tfManufacturer.getText();
     }
 
+    @Override
+    public void setManufacture(String text) {
+
+    }
+
+    @Override
     public JButton getBtnAddInfo() {
         return btnAddInfo;
     }
 
+    @Override
     public JButton getBtnPrint() {
         return btnPrint;
     }
 
+    @Override
     public JButton getBtnDelete() {
         return btnDelete;
     }
