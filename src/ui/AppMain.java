@@ -1,11 +1,14 @@
 package ui;
 
+import controller.ProductController;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class AppMain extends JPanel implements View {
+    private ProductController productController;
     private JPanel labelPanel, inputPanel, btnPanel; // p1, p2, p3
     private JComboBox cb;
     private JLabel messageLabel; // ml
@@ -15,10 +18,13 @@ public class AppMain extends JPanel implements View {
     private JButton btnAddInfo, btnPrint, btnDelete;
 
     public AppMain(){
+        productController = new ProductController(this);
         startUI();
     }
 
     private void startUI(){
+
+
         setPreferredSize(new Dimension(800,300));
         setLayout(new BorderLayout());
 
