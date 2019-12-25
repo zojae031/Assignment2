@@ -25,4 +25,9 @@ public class ProductDAOImpl implements  ProductDAO{
     public boolean updateProduct(Product product) {
         return false;
     }
+
+    @Override
+    public Product getProduct(int index) {
+        return null;
+    }
 }
