@@ -31,12 +31,13 @@ public class ProductDAOImpl implements ProductDAO {
     public ArrayList<Product> getAll() {
         sql = "select * from product";
 
-        ArrayList<Product> datas = new ArrayList<>();
+        ArrayList<Product> datas = new ArrayList<Product>();
         items = new Vector<String>();
         items.add("전체");
 
         try {
             pstmt = conn.prepareStatement(sql);
+            rs = pstmt.executeQuery();
             while (rs.next()) {
                 Product p = new Product();
                 p.setPrcode(rs.getInt("prcode"));
