@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 
 public class AppMain extends JFrame implements View {
 
@@ -118,7 +119,7 @@ public class AppMain extends JFrame implements View {
 
     // TODO
     @Override
-    public void refreshData() {
+    public void refreshData(Vector<String> comboBoxItems) {
         /*listPrintArea.setText("");
         clearField();
         editmode = false; // 현재 상태가 데이터 조회 후 상태인지, 새로운 데이터를 입력하기 위한 상태인지 설정하는 변수

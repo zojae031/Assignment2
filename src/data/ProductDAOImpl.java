@@ -2,6 +2,8 @@ package data;
 
 import data.dao.Product;
 
+import java.util.Vector;
+
 public class ProductDAOImpl implements  ProductDAO{
     private static ProductDAO INSTANCE = null;
     public static ProductDAO getInstance() {
@@ -28,6 +30,11 @@ public class ProductDAOImpl implements  ProductDAO{
 
     @Override
     public Product getProduct(int index) {
+        return null;
+    }
+
+    @Override
+    public Vector<String> getPrcodeLists() {
         return null;
     }
 }

@@ -2,6 +2,8 @@ package data;
 
 import data.dao.Product;
 
+import java.util.Vector;
+
 public interface ProductDAO {
 
     boolean newProduct(Product product);
@@ -11,6 +13,8 @@ public interface ProductDAO {
     boolean updateProduct(Product product);
 
     Product getProduct(int index);
+
+    Vector<String> getPrcodeLists();
 
 
 }

@@ -16,6 +16,7 @@ public class ProductController implements ActionListener {
         this.amPnl = panel;
         this.productDAO = product;
         amPnl.attachActionListener(this);
+
     }
 
 
@@ -41,7 +42,8 @@ public class ProductController implements ActionListener {
         } else if (obj == amPnl.getBtnDelete()) {//삭제
             delete();
         }
-        amPnl.refreshData();
+
+        amPnl.refreshData(productDAO.getPrcodeLists());
     }
 
     private void edit(Product product) {
