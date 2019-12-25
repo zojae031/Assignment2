@@ -6,10 +6,10 @@ import ui.AppMain;
 
 public class ProductController {
     private AppMain amPnl;
-    private ProductDAOImpl productDAO;
+    private ProductDAO productDAO;
 
 
-    public ProductController(AppMain panel,ProductDAOImpl product){
+    public ProductController(AppMain panel,ProductDAO product){
         this.amPnl = panel;
         this.productDAO = product;
     }
