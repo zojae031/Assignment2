@@ -32,17 +32,11 @@ public class AppMain extends JFrame implements View {
     }
 
     private void startUI(){
-
-
-
-
         setMessageLabel(); //ml
         setLabelPanel(); //p1
         setInputPanel(); //p2
         setBtnPanel(); //p3
         setListPrintPanel();
-
-
     }
 
     private void setMessageLabel() {
