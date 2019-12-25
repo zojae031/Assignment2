@@ -3,8 +3,11 @@ package data;
 import data.dao.Product;
 
 import java.util.Vector;
+import java.util.ArrayList;
 
 public interface ProductDAO {
+
+
 
     boolean newProduct(Product product);
 
@@ -12,9 +15,11 @@ public interface ProductDAO {
 
     boolean updateProduct(Product product);
 
-    Product getProduct(int index);
+    Product getProduct(int prcode);
 
     Vector<String> getPrcodeLists();
 
+    ArrayList<Product> getAll();
 
+    void closeDB();
 }
