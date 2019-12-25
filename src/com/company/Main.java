@@ -12,7 +12,7 @@ public class Main {
 
         AppMain appMain = new AppMain();
         frame.getContentPane().add(appMain);
-
+        //System.out.println(appMain.getProductName());
         frame.pack();
         frame.setVisible(true);
     }
