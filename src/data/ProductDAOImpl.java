@@ -91,6 +91,10 @@ public class ProductDAOImpl implements ProductDAO {
 
     @Override
     public boolean newProduct(Product product) {
+        if(product.getPrcode() == 0){
+            System.out.println("Prcode 는 0이 될 수 없습니다");
+            return false;
+        }
         sql = "insert into product values(?,?,?,?)";
         try {
             pstmt = conn.prepareStatement(sql);
