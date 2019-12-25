@@ -1,9 +1,8 @@
 package com.company;
+
 import controller.ProductController;
 import data.ProductDAOImpl;
 import ui.AppMain;
-
-import javax.swing.*;
 
 public class Main {
 

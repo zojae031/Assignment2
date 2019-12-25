@@ -1,7 +1,5 @@
 package ui;
 
-import controller.ProductController;
-
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -18,24 +16,18 @@ public class AppMain extends JFrame implements View {
     private JButton btnAddInfo, btnPrint, btnDelete;
     private JPanel startPanel;
 
-    public AppMain(){
+    public AppMain() {
         startPanel = new JPanel();
         startPanel.setLayout(new BorderLayout());
         startUI();
         add(startPanel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(800,300);
+        setSize(800, 300);
         setVisible(true);
-//        setPreferredSize(new Dimension(800,300));
-
 
     }
 
-    private void startUI(){
-
-
-
-
+    private void startUI() {
         setMessageLabel(); //ml
         setLabelPanel(); //p1
         setInputPanel(); //p2
@@ -46,14 +38,15 @@ public class AppMain extends JFrame implements View {
     }
 
     private void setMessageLabel() {
-        
+
         lblMessage = new JLabel();
         startPanel.add(lblMessage, BorderLayout.PAGE_START);
         lblMessage.setText("##메시지: 프로그램이 시작되었습니다.!!"); // TODO : 메세지 부분
     }
+
     private void setLabelPanel() {  // p1
         labelPanel = new JPanel();
-        labelPanel.setLayout(new GridLayout(4,1));
+        labelPanel.setLayout(new GridLayout(4, 1));
 
         lblManageNumber = new JLabel("관리번호");
         lblProductName = new JLabel("상품명");
@@ -64,16 +57,16 @@ public class AppMain extends JFrame implements View {
         labelPanel.add(lblProductName);
         labelPanel.add(lblPrice);
         labelPanel.add(lblManufacturer);
-        labelPanel.setBorder(BorderFactory.createEmptyBorder(30,0,30,30));
+        labelPanel.setBorder(BorderFactory.createEmptyBorder(30, 0, 30, 30));
         startPanel.add(labelPanel, BorderLayout.WEST);
 
     }
 
     private void setInputPanel() {
         inputPanel = new JPanel();
-        inputPanel.setLayout(new GridLayout(4,1));
-        inputPanel.setPreferredSize(new Dimension(100,490));
-        String [] num = {"전체","1","2","3"};
+        inputPanel.setLayout(new GridLayout(4, 1));
+        inputPanel.setPreferredSize(new Dimension(100, 490));
+        String[] num = {"전체", "1", "2", "3"};
 
         cb = new JComboBox(num);
 
@@ -87,7 +80,7 @@ public class AppMain extends JFrame implements View {
         inputPanel.add(tfProductName);
         inputPanel.add(tfPrice);
         inputPanel.add(tfManufacturer);
-        inputPanel.setBorder(BorderFactory.createEmptyBorder(30,0,30,0));
+        inputPanel.setBorder(BorderFactory.createEmptyBorder(30, 0, 30, 0));
         startPanel.add(inputPanel, BorderLayout.CENTER);
 
     }
@@ -105,26 +98,26 @@ public class AppMain extends JFrame implements View {
         btnPanel.add(btnPrint);
         btnPanel.add(btnDelete);
 
-        startPanel.add(btnPanel,BorderLayout.PAGE_END);
+        startPanel.add(btnPanel, BorderLayout.PAGE_END);
     }
 
     private void setListPrintPanel() {
 
         Border border = BorderFactory.createLineBorder(Color.BLACK); // TODO
-        listPrintArea = new JTextArea(10,50);
+        listPrintArea = new JTextArea(10, 50);
         listPrintArea.setBorder(border);
         listPrintArea.append("관리번호\t상품명\t\t단가\t제조사\n");
 
         JScrollPane scroll = new JScrollPane(listPrintArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 
-        scroll.setBorder(BorderFactory.createEmptyBorder(30,20,30,0));
-        startPanel.add(scroll,BorderLayout.EAST);
+        scroll.setBorder(BorderFactory.createEmptyBorder(30, 20, 30, 0));
+        startPanel.add(scroll, BorderLayout.EAST);
 
     }
 
 
     // TODO
-    protected void refreshData(){
+    protected void refreshData() {
         /*listPrintArea.setText("");
         clearField();
         editmode = false; // 현재 상태가 데이터 조회 후 상태인지, 새로운 데이터를 입력하기 위한 상태인지 설정하는 변수
@@ -153,35 +146,35 @@ public class AppMain extends JFrame implements View {
     }
 
     // TODO
-    protected void clearField(){
+    protected void clearField() {
 
     }
 
     //=============Getter And Setter===================
-    public String getComboBoxManageItem(){
+    public String getComboBoxManageItem() {
         return cb.getSelectedItem().toString();
     }
 
-    public String getProductName(){
+    public String getProductName() {
         return tfProductName.getText();
     }
 
-    public String getProductPrice(){
+    public String getProductPrice() {
         return tfPrice.getText();
     }
 
-    public String getManufacturer(){
+    public String getManufacturer() {
         return tfManufacturer.getText();
     }
+
     //=============Getter And Setter===================
 
     @Override
-    public void attachActionListener(ActionListener listener){
+    public void attachActionListener(ActionListener listener) {
         btnAddInfo.addActionListener(listener);
         btnPrint.addActionListener(listener);
         btnDelete.addActionListener(listener);
     }
-
 
 
 }
