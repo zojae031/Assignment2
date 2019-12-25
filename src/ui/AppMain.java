@@ -29,7 +29,6 @@ public class AppMain extends JFrame implements View {
 
     }
 
-    private void startUI() {
     private void startUI(){
         setMessageLabel(); //ml
         setLabelPanel(); //p1
