@@ -1,9 +1,14 @@
 package ui;
 
+import com.mysql.cj.x.protobuf.MysqlxCrud;
+import data.ProductDAOImpl;
+import data.dao.Product;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class AppMain extends JFrame implements View {
 
@@ -29,7 +34,7 @@ public class AppMain extends JFrame implements View {
 
     }
 
-    private void startUI() {
+    private void startUI(){
         setMessageLabel(); //ml
         setLabelPanel(); //p1
         setInputPanel(); //p2
@@ -119,31 +124,48 @@ public class AppMain extends JFrame implements View {
     // TODO
     @Override
     public void refreshData() {
-        /*listPrintArea.setText("");
+        System.out.println("refreshData");
+        ArrayList<Product> arrayProduct = ProductDAOImpl.getInstance().getAll();
+        listPrintArea.setText("");
+        listPrintArea.append("관리번호\t상품명\t\t단가\t제조사\n");
+        if(arrayProduct.isEmpty())
+            System.out.println("Data is Empty");
+        for(Product p : arrayProduct){
+            StringBuffer sb = new StringBuffer();
+            System.out.println("refreshData");
+            sb.append(p.getPrcode() + "\t");
+            sb.append(p.getPrname() + "\t\t");
+            sb.append(p.getPrice() + "\t");
+            sb.append(p.getManufacture() + "\n");
+            listPrintArea.append(sb.toString());
+        }
+        listPrintArea.repaint();
+        /*
+        ArrayList<Product> arrayProduct = ProductDAOImpl.getInstance().getAll();
+        listPrintArea.setText("");
         clearField();
         editmode = false; // 현재 상태가 데이터 조회 후 상태인지, 새로운 데이터를 입력하기 위한 상태인지 설정하는 변수
 
         listPrintArea.append("관리번호\t상품명\t\t단가\t제조사\n");
-        datas = dao.getAll();
 
         // 데이터를 변경하면 콤보박스 데이터 갱신
         cb.setModel(new DefaultComboBoxModel(dao.getItems())); //togo
 
         if(datas != null) {
-            for(Product p : datas){
+            for(Product p : arrayProduct){
                 StringBuffer sb = new StringBuffer();
                 sb.append(p.getPrcode() + "\t");
                 sb.append(p.getPrname() + "\t\t");
                 sb.append(p.getPrice() + "\t");
-                sb.append(p.getMenufacture() + "\n");
+                sb.append(p.getManufacture() + "\n");
                 listPrintArea.append(sb.toString());
 
             }
         }
-
         else {
             listPrintArea.append("등록된 상품이 없습니다. !!\n상품을 등록해 주세요 !!");
-        }*/
+        }
+        */
     }
 
     // TODO

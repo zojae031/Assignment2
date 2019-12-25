@@ -2,7 +2,11 @@ package data;
 
 import data.dao.Product;
 
+import java.util.ArrayList;
+
 public interface ProductDAO {
+
+
 
     boolean newProduct(Product product);
 
@@ -10,7 +14,9 @@ public interface ProductDAO {
 
     boolean updateProduct(Product product);
 
-    Product getProduct(int index);
+    Product getProduct(int prcode);
 
+    ArrayList<Product> getAll();
 
+    void closeDB();
 }
