@@ -9,7 +9,7 @@ public class AppMain extends JPanel implements View {
     private JPanel labelPanel, inputPanel, btnPanel; // p1, p2, p3
     private JComboBox cb;
     private JLabel messageLabel; // ml
-    private JLabel lb1, lb2, lb3, lb4;
+    private JLabel lbManageNumber, lbProductName, lbPrice, lbManufacturer;
     private JTextArea listPrintArea;
     private JTextField tfProductName, tfPrice, tfManufacturer;
     private JButton btnAddInfo, btnPrint, btnDelete;
@@ -41,15 +41,15 @@ public class AppMain extends JPanel implements View {
         labelPanel = new JPanel();
         labelPanel.setLayout(new GridLayout(4,1));
 
-        lb1 = new JLabel("관리번호");
-        lb2 = new JLabel("상품명");
-        lb3 = new JLabel("단가");
-        lb4 = new JLabel("제조사");
+        lbManageNumber = new JLabel("관리번호");
+        lbProductName = new JLabel("상품명");
+        lbPrice = new JLabel("단가");
+        lbManufacturer = new JLabel("제조사");
 
-        labelPanel.add(lb1);
-        labelPanel.add(lb2);
-        labelPanel.add(lb3);
-        labelPanel.add(lb4);
+        labelPanel.add(lbManageNumber);
+        labelPanel.add(lbProductName);
+        labelPanel.add(lbPrice);
+        labelPanel.add(lbManufacturer);
         labelPanel.setBorder(BorderFactory.createEmptyBorder(30,0,30,30));
         add(labelPanel, BorderLayout.WEST);
 
@@ -64,9 +64,6 @@ public class AppMain extends JPanel implements View {
         cb = new JComboBox(num);
 
         tfProductName = new JTextField(10);
-
-        tfProductName.setText("고구마");
-
         tfPrice = new JTextField(10);
         tfManufacturer = new JTextField(10);
 
