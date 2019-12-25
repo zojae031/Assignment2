@@ -3,11 +3,11 @@ package data.dao;
 public class Product {
 
     private int prcdoe;
+    private int prcode;
 
     private String prname;
     private int price;
     private String manufacture;
-
 
     public Product(int prcdoe, String prname, int price, String manufacture) {
         this.prcdoe = prcdoe;
