@@ -11,8 +11,8 @@ public class AppMain extends JFrame implements View {
 
     private JPanel labelPanel, inputPanel, btnPanel; // p1, p2, p3
     private JComboBox cb;
-    private JLabel messageLabel; // ml
-    private JLabel lbManageNumber, lbProductName, lbPrice, lbManufacturer;
+    private JLabel lblMessage; // ml
+    private JLabel lblManageNumber, lblProductName, lblPrice, lblManufacturer;
     private JTextArea listPrintArea;
     private JTextField tfProductName, tfPrice, tfManufacturer;
     private JButton btnAddInfo, btnPrint, btnDelete;
@@ -46,24 +46,24 @@ public class AppMain extends JFrame implements View {
     }
 
     private void setMessageLabel() {
-
-        messageLabel = new JLabel();
-        startPanel.add(messageLabel, BorderLayout.PAGE_START);
-        messageLabel.setText("##메시지: 프로그램이 시작되었습니다.!!"); // TODO : 메세지 부분
+        
+        lblMessage = new JLabel();
+        startPanel.add(lblMessage, BorderLayout.PAGE_START);
+        lblMessage.setText("##메시지: 프로그램이 시작되었습니다.!!"); // TODO : 메세지 부분
     }
     private void setLabelPanel() {  // p1
         labelPanel = new JPanel();
         labelPanel.setLayout(new GridLayout(4,1));
 
-        lbManageNumber = new JLabel("관리번호");
-        lbProductName = new JLabel("상품명");
-        lbPrice = new JLabel("단가");
-        lbManufacturer = new JLabel("제조사");
+        lblManageNumber = new JLabel("관리번호");
+        lblProductName = new JLabel("상품명");
+        lblPrice = new JLabel("단가");
+        lblManufacturer = new JLabel("제조사");
 
-        labelPanel.add(lbManageNumber);
-        labelPanel.add(lbProductName);
-        labelPanel.add(lbPrice);
-        labelPanel.add(lbManufacturer);
+        labelPanel.add(lblManageNumber);
+        labelPanel.add(lblProductName);
+        labelPanel.add(lblPrice);
+        labelPanel.add(lblManufacturer);
         labelPanel.setBorder(BorderFactory.createEmptyBorder(30,0,30,30));
         startPanel.add(labelPanel, BorderLayout.WEST);
 
