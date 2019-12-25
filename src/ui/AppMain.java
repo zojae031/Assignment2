@@ -167,6 +167,17 @@ public class AppMain extends JFrame implements View {
         return tfManufacturer.getText();
     }
 
+    public JButton getBtnAddInfo() {
+        return btnAddInfo;
+    }
+
+    public JButton getBtnPrint() {
+        return btnPrint;
+    }
+
+    public JButton getBtnDelete() {
+        return btnDelete;
+    }
     //=============Getter And Setter===================
 
     @Override

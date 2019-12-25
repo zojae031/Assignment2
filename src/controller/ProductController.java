@@ -22,6 +22,12 @@ public class ProductController implements Controller, ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Object obj = e.getSource();
-        if (obj ==)
+        if (obj == amPnl.getBtnAddInfo()) {//등록
+            
+        } else if (obj == amPnl.getBtnPrint()) {//조회
+
+        } else if (obj == amPnl.getBtnDelete()) {//삭제
+
+        }
     }
 }
