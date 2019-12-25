@@ -1,4 +1,6 @@
 package com.company;
+import controller.ProductController;
+import data.ProductDAOImpl;
 import ui.AppMain;
 
 import javax.swing.*;
@@ -6,13 +8,6 @@ import javax.swing.*;
 public class Main {
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        AppMain appMain = new AppMain();
-        frame.getContentPane().add(appMain);
-        //System.out.println(appMain.getProductName());
-        frame.pack();
-        frame.setVisible(true);
+        new ProductController(new AppMain(), new ProductDAOImpl());
     }
 }

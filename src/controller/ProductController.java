@@ -6,10 +6,11 @@ import ui.AppMain;
 
 public class ProductController {
     private AppMain amPnl;
-    private final ProductDAO productDAO = ProductDAOImpl.getInstance();
+    private ProductDAOImpl productDAO;
 
-    public ProductController(AppMain panel){
-        amPnl = panel;
 
+    public ProductController(AppMain panel,ProductDAOImpl product){
+        this.amPnl = panel;
+        this.productDAO = product;
     }
 }

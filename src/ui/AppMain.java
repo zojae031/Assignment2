@@ -7,8 +7,8 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class AppMain extends JPanel implements View {
-    private ProductController productController;
+public class AppMain extends JFrame implements View {
+
     private JPanel labelPanel, inputPanel, btnPanel; // p1, p2, p3
     private JComboBox cb;
     private JLabel messageLabel; // ml
@@ -16,17 +16,25 @@ public class AppMain extends JPanel implements View {
     private JTextArea listPrintArea;
     private JTextField tfProductName, tfPrice, tfManufacturer;
     private JButton btnAddInfo, btnPrint, btnDelete;
+    private JPanel startPanel;
 
     public AppMain(){
-        productController = new ProductController(this);
+        startPanel = new JPanel();
+        startPanel.setLayout(new BorderLayout());
         startUI();
+        add(startPanel);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(800,300);
+        setVisible(true);
+//        setPreferredSize(new Dimension(800,300));
+
+
     }
 
     private void startUI(){
 
 
-        setPreferredSize(new Dimension(800,300));
-        setLayout(new BorderLayout());
+
 
         setMessageLabel(); //ml
         setLabelPanel(); //p1
@@ -40,7 +48,7 @@ public class AppMain extends JPanel implements View {
     private void setMessageLabel() {
 
         messageLabel = new JLabel();
-        add(messageLabel, BorderLayout.PAGE_START);
+        startPanel.add(messageLabel, BorderLayout.PAGE_START);
         messageLabel.setText("##메시지: 프로그램이 시작되었습니다.!!"); // TODO : 메세지 부분
     }
     private void setLabelPanel() {  // p1
@@ -57,7 +65,7 @@ public class AppMain extends JPanel implements View {
         labelPanel.add(lbPrice);
         labelPanel.add(lbManufacturer);
         labelPanel.setBorder(BorderFactory.createEmptyBorder(30,0,30,30));
-        add(labelPanel, BorderLayout.WEST);
+        startPanel.add(labelPanel, BorderLayout.WEST);
 
     }
 
@@ -80,7 +88,7 @@ public class AppMain extends JPanel implements View {
         inputPanel.add(tfPrice);
         inputPanel.add(tfManufacturer);
         inputPanel.setBorder(BorderFactory.createEmptyBorder(30,0,30,0));
-        add(inputPanel, BorderLayout.CENTER);
+        startPanel.add(inputPanel, BorderLayout.CENTER);
 
     }
 
@@ -97,7 +105,7 @@ public class AppMain extends JPanel implements View {
         btnPanel.add(btnPrint);
         btnPanel.add(btnDelete);
 
-        add(btnPanel,BorderLayout.PAGE_END);
+        startPanel.add(btnPanel,BorderLayout.PAGE_END);
     }
 
     private void setListPrintPanel() {
@@ -110,7 +118,7 @@ public class AppMain extends JPanel implements View {
         JScrollPane scroll = new JScrollPane(listPrintArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 
         scroll.setBorder(BorderFactory.createEmptyBorder(30,20,30,0));
-        add(scroll,BorderLayout.EAST);
+        startPanel.add(scroll,BorderLayout.EAST);
 
     }
 
