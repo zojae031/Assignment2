@@ -2,7 +2,6 @@ package data.dao;
 
 public class Product {
 
-    private int prcdoe;
     private int prcode;
 
     private String prname;
@@ -10,7 +9,7 @@ public class Product {
     private String manufacture;
 
     public Product(int prcdoe, String prname, int price, String manufacture) {
-        this.prcdoe = prcdoe;
+        this.prcode = prcdoe;
         this.prname = prname;
         this.price = price;
         this.manufacture = manufacture;
@@ -50,14 +49,6 @@ public class Product {
 
     public int getPrcode() {
         return prcode;
-    }
-
-    public int getPrcdoe() {
-        return prcdoe;
-    }
-
-    public void setPrcdoe(int prcdoe) {
-        this.prcdoe = prcdoe;
     }
 
 }
