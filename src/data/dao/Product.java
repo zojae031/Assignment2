@@ -16,6 +16,10 @@ public class Product {
         this.manufacture = manufacture;
     }
 
+    public Product(){
+
+    }
+
     public void setPrcode(int prcode) {
         this.prcode = prcode;
     }
