@@ -23,14 +23,24 @@ public class ProductController implements Controller, ActionListener {
     public void actionPerformed(ActionEvent e) {
         Object obj = e.getSource();
         if (obj == amPnl.getBtnAddInfo()) {//등록
+
+
             int prcode = amPnl.getComboBoxIndex();
             String productName = amPnl.getProductName();
             int price = amPnl.getProductPrice();
             String manufacturer = amPnl.getManufacturer();
 
-            if (productDAO.newProduct(new Product(prcode, productName, price, manufacturer))) {
-                amPnl.setMessage("상품을 등록했습니다.");
-            } else amPnl.setMessage("상품 등록이 실패했습니다.");
+            if (editMode) {//수정일 때
+                if (productDAO.updateProduct(new Product(amPnl.getComboBoxIndex(), amPnl.getProductName(), amPnl.getProductPrice(), amPnl.getManufacturer())))
+                    ;
+                //clearField(); //TODO  아직 뭐하는 친구인지 몰라서 일단 주석처리 해뒀습니다.@see ppt page 79
+                editMode = false;
+            } else { //등록일 때
+                if (productDAO.newProduct(new Product(prcode, productName, price, manufacturer))) {
+                    amPnl.setMessage("상품을 등록했습니다.");
+                } else amPnl.setMessage("상품 등록이 실패했습니다.");
+            }
+
 
         } else if (obj == amPnl.getBtnPrint()) {//조회
             int prcode = amPnl.getComboBoxIndex();
@@ -43,7 +53,14 @@ public class ProductController implements Controller, ActionListener {
                 editMode = true;
             } else amPnl.setMessage("상품이 검색되지 않았습니다!");
         } else if (obj == amPnl.getBtnDelete()) {//삭제
-
+            int index = amPnl.getComboBoxIndex();
+            if (index == 0) {
+                amPnl.setMessage("전체 삭제는 되지 않습니다.");
+            } else {
+                if (productDAO.delProduct(index)) {
+                    amPnl.setMessage("상품이 삭제되었습니다.");
+                } else amPnl.setMessage("상품이 삭제되지 않았습니다!!");
+            }
         }
         amPnl.refreshData();
     }
