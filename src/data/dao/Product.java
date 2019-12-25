@@ -8,8 +8,8 @@ public class Product {
     private int price;
     private String manufacture;
 
-    public Product(int prcdoe, String prname, int price, String manufacture) {
-        this.prcode = prcdoe;
+    public Product(int prcode, String prname, int price, String manufacture) {
+        this.prcode = prcode;
         this.prname = prname;
         this.price = price;
         this.manufacture = manufacture;
