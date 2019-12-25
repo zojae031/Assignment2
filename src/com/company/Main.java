@@ -1,9 +1,13 @@
 package com.company;
+import controller.ProductController;
+import data.ProductDAOImpl;
+import ui.AppMain;
+
+import javax.swing.*;
 
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
-        System.out.println("ex");
+        new ProductController(new AppMain(), new ProductDAOImpl());
     }
 }
