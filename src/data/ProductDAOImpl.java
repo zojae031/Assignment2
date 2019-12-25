@@ -15,6 +15,7 @@ public class ProductDAOImpl implements ProductDAO {
     private static ResultSet rs;
     private Vector<String> items = null;
     private static String sql;
+    private static String jdbcDriver = "com.mysql.cj.jdbc.Driver";
 
     public ProductDAOImpl(){
         String ID,Password;
@@ -90,14 +91,14 @@ public class ProductDAOImpl implements ProductDAO {
 
     @Override
     public boolean newProduct(Product product) {
-        sql = "insert into product vales(?,?,?,?)";
+        sql = "insert into product values(?,?,?,?)";
         try {
             pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, product.getPrcode());
             pstmt.setString(2, product.getPrname());
             pstmt.setInt(3, product.getPrice());
             pstmt.setString(4, product.getManufacture());
-            pstmt.executeUpdate();
+            pstmt.execute();
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -122,9 +123,11 @@ public class ProductDAOImpl implements ProductDAO {
     private void connectDB(String ID,String Password) {
         try {
             conn = DriverManager.getConnection(jdbcUrl, ID, Password);
+            System.out.println("서버와 연결이 되었습니다.");
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
     public void closeDB() {

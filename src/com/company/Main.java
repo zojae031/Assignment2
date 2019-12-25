@@ -10,7 +10,6 @@ public class Main {
         new ProductController(new AppMain(), ProductDAOImpl.getInstance());
 
 
-        ProductDAOImpl.getInstance().closeDB();
     }
 
 }
