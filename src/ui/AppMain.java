@@ -122,8 +122,6 @@ public class AppMain extends JFrame implements View {
     }
 
 
-    // TODO
-    @Override
     public void refreshData() {
         System.out.println("refreshData");
         ArrayList<Product> arrayProduct = ProductDAOImpl.getInstance().getAll();
@@ -243,5 +241,25 @@ public class AppMain extends JFrame implements View {
     @Override
     public int getComboBoxIndex() {
         return cb.getSelectedIndex();
+    }
+
+    @Override
+    public void refreshData(Vector<String> comboBoxItems) {
+        System.out.println("refreshData");
+        ArrayList<Product> arrayProduct = ProductDAOImpl.getInstance().getAll();
+        listPrintArea.setText("");
+        listPrintArea.append("관리번호\t상품명\t\t단가\t제조사\n");
+        if(arrayProduct.isEmpty())
+            System.out.println("Data is Empty");
+        for(Product p : arrayProduct){
+            StringBuffer sb = new StringBuffer();
+            System.out.println("refreshData");
+            sb.append(p.getPrcode() + "\t");
+            sb.append(p.getPrname() + "\t\t");
+            sb.append(p.getPrice() + "\t");
+            sb.append(p.getManufacture() + "\n");
+            listPrintArea.append(sb.toString());
+        }
+        listPrintArea.repaint();
     }
 }
